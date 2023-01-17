@@ -8,4 +8,4 @@ const rootReducer = combineReducers({
 
 })
 
-export const store = createStore(cashReducer)
+export const store = createStore(rootReducer)
