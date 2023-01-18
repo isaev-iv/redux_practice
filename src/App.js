@@ -1,5 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import {addCustomerAction, removeCustomerAction} from "./store/customerReducer";
+import {fetchCustomers} from "./asyncActions/customers";
 
 
 function App() {
@@ -42,12 +43,12 @@ function App() {
             <button onClick={() => addCustomer(prompt())} style={{padding: '10px', fontSize: '20px', background: "lightsteelblue"}}>
                 Добавить клиента
             </button>
-            <button onClick={() => getCash(Number(prompt()))} style={{padding: '10px', fontSize: '20px', background: "lightsteelblue"}}>
-                Удалить клиента
+            <button onClick={() => dispatch(fetchCustomers())} style={{padding: '10px', fontSize: '20px', background: "lightsteelblue"}}>
+                Получить клиентов из базы
             </button>
         </div>
             {customers.length > 0 ?
-                <div style={{position: 'absolute', width: '92vh', left: '21%', padding: '10px', fontSize: '20px', background: "lightsteelblue"}}>
+                <div style={{position: 'absolute', width: '80vh', left: '7%', padding: '10px', fontSize: '20px', background: "lightsteelblue"}}>
                     {customers.map(customer =>
                             <div onClick={() => removeCustomer(customer)} style={{display: 'flex', justifyContent: 'center', border: '1px solid black', margin: '10px', cursor: 'pointer'}} key={customer.id}>
                                 {customer.name }
